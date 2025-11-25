@@ -1,22 +1,25 @@
 
 :root{
-  --night-1: #07102a;
-  --night-2: #0b2340;
+  --night-bg: #0b1d3d;
   --accent: #6fd3ff;
 }
 html,body{
   height:100%;
 }
 body{
-  background: linear-gradient(180deg,var(--night-1) 0%, var(--night-2) 100%);
+  background: var(--night-bg);
   color: #e6f6ff;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
-.card{ background: rgba(255,255,255,0.04); border: none; }
+.card{ 
+  background: rgba(255,255,255,0.04); 
+  border: none; 
+}
 .card .card-title{ color: #f8fbff; }
+.card .card-body{ background: rgba(255,255,255,0.04); }
 
 .navbar-brand{ letter-spacing:0.4px; }
 
@@ -51,8 +54,9 @@ textarea{
 .form-control:focus,
 .form-select:focus,
 textarea:focus{
-  box-shadow: 0 0 0 0.15rem rgba(111,211,255,0.12);
-  border-color: rgba(111,211,255,0.24);
+  box-shadow: 0 0 0 0.15rem rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.24);
+  background: rgba(255,255,255,0.06);
 }
 .form-control::placeholder{
   color: rgba(255,255,255,0.65);
@@ -63,12 +67,43 @@ textarea:focus{
   border: 1px solid rgba(255,255,255,0.06);
 }
 
-.btn-primary{ background: linear-gradient(90deg,#1f7bd7,#59a6ff); border: none; }
-.btn-outline-light{ border-color: rgba(255,255,255,0.14); }
+.btn-primary{ 
+  background: rgba(255,255,255,0.08); 
+  border: 1px solid rgba(255,255,255,0.14);
+  color: #ffffff;
+}
+.btn-primary:hover{
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.2);
+}
+.btn-outline-light{ 
+  border-color: rgba(255,255,255,0.14); 
+  color: #ffffff;
+}
+.btn-outline-light:hover{
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.2);
+}
+
+/* Amélioration responsive */
+@media (max-width: 992px){
+  .container{ max-width: 100%; padding: 0 1rem; }
+}
+
+@media (max-width: 768px){
+  .navbar-brand span{ font-size: 1rem; }
+  .card{ margin-bottom: 1rem; }
+  .btn-lg{ padding: 0.5rem 1rem; font-size: 1rem; }
+}
 
 @media (max-width: 576px){
-  header{ padding: 3rem 1rem; }
-  .display-5{ font-size: 1.6rem; }
+  header{ padding: 2rem 1rem; }
+  .display-5{ font-size: 1.5rem; }
+  .lead{ font-size: 1rem; }
+  .card-body{ padding: 1rem; }
+  .form-control, .form-select{ font-size: 0.9rem; }
+  .btn{ font-size: 0.9rem; padding: 0.4rem 0.8rem; }
+  .set-row input{ max-width: 100px; font-size: 0.85rem; }
 }
 
 .list-group-item{ background: transparent; color: #ffffff; border-color: rgba(255,255,255,0.03); }
